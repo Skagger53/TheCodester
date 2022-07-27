@@ -8,7 +8,7 @@ class MainWindow:
     def __init__(self):
         self.codes = [] # Used for code output (list)
         self.new_list = []  # Used to correct list of codes (no dupes, etc.)
-        self.window_width, self.window_height = 660, 830 # Sets program size
+        self.window_width, self.window_height = 660, 610 # Sets program size
 
         self.main_window = tk.Tk()
         self.main_window.resizable(False, False)
@@ -40,12 +40,12 @@ class MainWindow:
         label.pack()
 
         # Label for user input text widget
-        self.get_text_lbl = tk.Label(self.top_frame, text="Enter text here. Kick back, relax, and leave it to the Codester!")
+        self.get_text_lbl = tk.Label(self.top_frame, text="Enter text here. Sit back, relax, and leave it to the Codester!")
         self.get_text_lbl.grid(column=1, row=0, sticky="W", pady = (0, 10))
 
         # Setting up text widget for user input
-        self.input_text = tk.Text(self.top_frame, height=25, width=48)
-        self.input_text.grid(row=1, column=1, padx=(0, 10))
+        self.input_text = tk.Text(self.top_frame, height=20, width=48)
+        self.input_text.grid(row=1, column=1)
 
         # Sets up scrollbar for text widget for user input
         self.input_text_scrollbar = tk.Scrollbar(self.top_frame, command=self.input_text.yview, orient="vertical")
@@ -60,23 +60,23 @@ class MainWindow:
         self.bottom_frame = tk.Frame(self.main_window, padx = 10, pady = 10)
         self.bottom_frame.grid(row=4, column=0, rowspan=2, columnspan=3, padx = 10, pady = (0, 15))
 
-        # Button to copy output codes to clipboard. Disabled by default and only enabled when codes are entered.
-        self.copy_button = tk.Button(self.bottom_frame, text = "Copy codes to clipboard", command = self.copy_to_clipboard)
-        self.copy_button.grid(column=1, row=6, pady=(15, 0))
-        self.copy_button["state"] = "disabled"
-
         # Label over output text widget. This starts out as empty and only contains data if (1) codes were found or (2) text was searched and zero codes were found
         self.codes_output_label = tk.Label(self.bottom_frame, text="")
-        self.codes_output_label.grid(column=0, columnspan=2, row=4, sticky="W", pady = (0, 10))
+        self.codes_output_label.grid(column=0, columnspan=2, row=4, sticky="W", pady = (0, 0))
 
         # Text widget for codes output. This is disabled so that the user cannot type in it. (It must be enabled and disabled each time the program edits its contents)
-        self.codes_output = tk.Text(self.bottom_frame, height = 9, width = 72, state = "disabled")
+        self.codes_output = tk.Text(self.bottom_frame, height = 2, width = 72, state = "disabled")
         self.codes_output.grid(column=1, row=5, pady = (0, 15))
 
         # Text widget for code output scroll bar
         self.codes_output_scrollbar = tk.Scrollbar(self.bottom_frame, command=self.codes_output.yview, orient="vertical")
         self.codes_output_scrollbar.grid(column=2, row=5, sticky="nse")
-        self.input_text.configure(yscrollcommand=self.input_text_scrollbar.set)
+        self.codes_output.configure(yscrollcommand=self.codes_output_scrollbar.set)
+
+        # Button to copy output codes to clipboard. Disabled by default and only enabled when codes are entered.
+        self.copy_button = tk.Button(self.bottom_frame, text = "Copy codes to clipboard", command = self.copy_to_clipboard)
+        self.copy_button.grid(column=1, row=6, pady=(15, 0))
+        self.copy_button["state"] = "disabled"
 
         # Exit button
         self.exit_button = tk.Button(self.main_window, text = "Exit", command = self.confirm_exit)
