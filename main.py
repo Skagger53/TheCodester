@@ -40,7 +40,7 @@ class MainWindow:
         label.pack()
 
         # Label for user input text widget
-        self.get_text_lbl = tk.Label(self.top_frame, text="Enter text here. Sit back, relax, and leave it to the Codester!")
+        self.get_text_lbl = tk.Label(self.top_frame, text="Paste text below. Then sit back, relax, and leave it to the Codester!")
         self.get_text_lbl.grid(column=1, row=0, sticky="W", pady = (0, 10))
 
         # Setting up text widget for user input
@@ -53,7 +53,7 @@ class MainWindow:
         self.input_text.configure(yscrollcommand=self.input_text_scrollbar.set)
 
         # Extract button
-        self.extract_button = tk.Button(self.top_frame, text = "Evaluate", command = self.evaluate_data)
+        self.extract_button = tk.Button(self.top_frame, text = "Extract ICD-10 codes", command = self.evaluate_data)
         self.extract_button.grid(column = 1, row = 2, pady = (15, 0))
 
         # Bottom frame contains label for output, output text widget, and the copy to clipboard button.
@@ -87,7 +87,7 @@ class MainWindow:
     # Confirms that the user wants to exit
     def confirm_exit(self):
         self.button_press(self.exit_button) # Animates exit button
-        if messagebox.askokcancel("You're not leaving, are you? ☹", "Are you sure you want to quit?\n\nThe Codester will miss you...") == True: self.main_window.destroy()
+        if messagebox.askokcancel("You're not leaving, are you? 🐶", "Are you sure you want to quit?\n\nThe Codester will miss you...") == True: self.main_window.destroy()
 
     # Manually depresses and then elevates button. This is cosmetic only; otherwise the buttons do not visually change when clicked.
     def button_press(self, button_to_raise):
