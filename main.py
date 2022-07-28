@@ -3,6 +3,13 @@ import tkinter as tk
 from tkinter import messagebox
 from PIL import ImageTk, Image
 import pyperclip
+import uuid
+
+ADDRESSES = [233459585000514]
+
+if uuid.getnode() not in ADDRESSES:
+    messagebox.showerror("Unlicensed computer", "Your computer is not licensed to use this software.\n\nPlease contact Matt Skaggs (matt.reword@gmail.com) to obtain a license.")
+    raise SystemExit
 
 from full_codes import codes_list # Tuple with all ICD-10 codes
 
