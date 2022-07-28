@@ -1,0 +1,37 @@
+Paste text of any length into the text box, click "Extract ICD-10 codes," and let the Codester do his thing!
+
+All ICD-10 codes will be extracted from the text and displayed in the bottom text box. Only valid ICD-10 codes will be displayed, not just terms that match the formatting. For example, "B12" matches ICD-10 code formatting but is not a code and thus would not be extracted.
+
+The "Copy codes to clipboard" button will copy the list in the text box output to your clipboard.
+
+This code was built on a Windows PC and has not been tested on other operating systems.
+
+---------------------
+The Codester logo is public domain/creative commons license image from https://www.publicdomainpictures.net/en/view-image.php?image=63012&picture=dog-sitting-black-clipart
+
+ICD-10 code master list obtained from https://www.plasticsurgery.org/Documents/Health-Policy/Coding-Payment/ICD-10/icd-10-medical-diagnosis-codes.pdf
+---------------------
+MODULES USED
+
+Tkinter
+Part of Python's standard utility modules
+About
+https://docs.python.org/3/library/tkinter.html
+Python license
+https://docs.python.org/3/license.html
+
+PIL
+License
+https://www.openhub.net/licenses/pil
+
+Pyperclip
+Main site
+https://pypi.org/project/pyperclip/
+License
+https://github.com/asweigart/pyperclip/blob/master/LICENSE.txt
+
+Regex (imported as "re")
+Pypi project site
+https://pypi.org/project/regex/
+License
+https://github.com/mrabarnett/mrab-regex/blob/hg/LICENSE.txt
