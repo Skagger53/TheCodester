@@ -1,6 +1,8 @@
-The Codester logo is public domain/creative commons license image from https://www.publicdomainpictures.net/en/view-image.php?image=63012&picture=dog-sitting-black-clipart
+The Codester logo is public domain/creative commons license image from here:
+https://www.publicdomainpictures.net/en/view-image.php?image=63012&picture=dog-sitting-black-clipart
 
-ICD-10 code master list obtained from https://www.plasticsurgery.org/Documents/Health-Policy/Coding-Payment/ICD-10/icd-10-medical-diagnosis-codes.pdf
+ICD-10 code master list obtained from here:
+https://www.plasticsurgery.org/Documents/Health-Policy/Coding-Payment/ICD-10/icd-10-medical-diagnosis-codes.pdf
 ---------------------
 MODULES USED
 
