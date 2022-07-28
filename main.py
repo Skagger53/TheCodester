@@ -14,6 +14,7 @@ class MainWindow:
         self.window_width, self.window_height = 660, 610 # Sets program size
 
         self.main_window = tk.Tk()
+        self.main_window.iconbitmap("images\TheCodesterHimself.ico")
         self.main_window.resizable(False, False)
 
         # Sets window location in the middle of the screen (offset up by 5% of window height -- cosmetic choice)
@@ -26,7 +27,7 @@ class MainWindow:
         self.main_window.geometry('%dx%d+%d+%d' % (self.window_width, self.window_height, x, y))
 
         # self.main_window.geometry("660x830")
-        self.main_window.title("The Codester is here!")
+        self.main_window.title("The Codester!")
 
         # Top frame contains label for text widget (user text input) and extract_button
         self.top_frame = tk.Frame(self.main_window, pady = 10)
@@ -37,7 +38,7 @@ class MainWindow:
         self.test_frame.grid(row = 0, rowspan = 4, column = 0, sticky = "e")
 
         # Opening and resizing the Codester
-        the_codester = Image.open("TheCodesterHimself.png")
+        the_codester = Image.open("images\TheCodesterHimself.png")
         the_codester = ImageTk.PhotoImage(the_codester.resize((187, 205), Image.Resampling.LANCZOS))
         label = tk.Label(self.test_frame, image = the_codester)
         label.pack()
