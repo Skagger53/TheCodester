@@ -14,7 +14,7 @@ class MainWindow:
         self.window_width, self.window_height = 660, 610 # Sets program size
 
         self.main_window = tk.Tk()
-        self.main_window.iconbitmap("images\TheCodester_Original.ico")
+        self.main_window.iconbitmap("supporting_files\TheCodester_Original.ico")
         self.main_window.resizable(False, False)
 
         # Sets window location in the middle of the screen (offset up by 5% of window height -- cosmetic choice)
@@ -38,7 +38,7 @@ class MainWindow:
         self.test_frame.grid(row = 0, rowspan = 4, column = 0, sticky = "e")
 
         # Opening and resizing the Codester
-        the_codester = Image.open("images\TheCodesterHimself.jpg")
+        the_codester = Image.open("supporting_files\TheCodesterHimself.jpg")
         the_codester = ImageTk.PhotoImage(the_codester.resize((205, 251), Image.Resampling.LANCZOS))
         label = tk.Label(self.test_frame, image = the_codester)
         label.pack()
