@@ -1,0 +1,30 @@
+The Codester logo is public domain/creative commons license image from here:
+https://www.publicdomainpictures.net/en/view-image.php?image=63012&picture=dog-sitting-black-clipart
+
+ICD-10 code master list obtained from here:
+https://www.plasticsurgery.org/Documents/Health-Policy/Coding-Payment/ICD-10/icd-10-medical-diagnosis-codes.pdf
+---------------------
+MODULES USED
+
+Tkinter
+Part of Python's standard utility modules
+About
+https://docs.python.org/3/library/tkinter.html
+Python license
+https://docs.python.org/3/license.html
+
+PIL
+License
+https://www.openhub.net/licenses/pil
+
+Pyperclip
+Main site
+https://pypi.org/project/pyperclip/
+License
+https://github.com/asweigart/pyperclip/blob/master/LICENSE.txt
+
+Regex (imported as "re")
+Pypi project site
+https://pypi.org/project/regex/
+License
+https://github.com/mrabarnett/mrab-regex/blob/hg/LICENSE.txt
