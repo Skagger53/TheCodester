@@ -4,10 +4,13 @@ from tkinter import messagebox
 from PIL import ImageTk, Image
 import pyperclip
 
+from full_codes import codes_list # Tuple with all ICD-10 codes
+
 class MainWindow:
     def __init__(self):
-        self.codes = [] # Used for code output (list)
+        self.codes = [] # Used for code output (later changed to string)
         self.new_list = []  # Used to correct list of codes (no dupes, etc.)
+        self.num_found = None # Tracks the number of codes found. Needed since self.codes is later saved as a string
         self.window_width, self.window_height = 660, 610 # Sets program size
 
         self.main_window = tk.Tk()
@@ -101,9 +104,17 @@ class MainWindow:
 
     # Takes the self.list list and ensures that it does not have any duplicates. Also sorts and converts to string with comma delimiters.
     def no_dups(self):
-        # Checks for duplicates. From current point in list iteration, if a code is unique, it appears one time. If more than once, it's skipped (and will be caught on a later iteration).
+        # Validates list in multiple ways: Checks for duplicates, checks against master list of codes, sorts, and joins list elements to create a string.
+
+        # From current point in list iteration, if a code is unique, it appears one time. If more than once, it's skipped (and will be caught on a later iteration).
+        # Also validates the possible code against the master code list, which has no periods in the codes
+        self.new_list = []
         for i, code in enumerate(self.codes):
-            if self.codes[i:].count(code) == 1: self.new_list.append(code)
+            if self.codes[i:].count(code) == 1 and code.replace(".", "") in codes_list: self.new_list.append(code)
+
+        self.num_found = len(self.new_list)
+        if self.num_found == 1: self.num_found = (1, "code")
+        else: self.num_found = (self.num_found, "codes")
 
         self.new_list.sort()
         self.new_list = ", ".join(self.new_list)
@@ -116,6 +127,8 @@ class MainWindow:
 
         # When the user enters nothing, codes_output text widget and label are reset to empty (e.g., if it had codes in it from a previous evaluation) and copy button is disabled
         if user_input == "":
+            self.codes = []
+            self.num_found = None
             self.codes_output.config(state = "normal")
             self.codes_output.delete("1.0", "end")
             self.codes_output_label.config(text="")
@@ -138,9 +151,11 @@ class MainWindow:
 
             self.copy_button["state"] = "normal" # User now needs to be able to copy the output
 
-            self.codes_output_label.config(text = "Who's a good boy? Who's a good boy? The Codester's a good boy!")
+            self.codes_output_label.config(text = f"{self.num_found[0]} {self.num_found[1]} found. Who's a good boy? Who's a good boy? The Codester's a good boy!")
 
         else: # If no codes were found
+            self.codes = []
+            self.num_found = None
             self.copy_button["state"] = "disable"
 
             # Enters text to say that no codes were found (but copy button is disabled)
