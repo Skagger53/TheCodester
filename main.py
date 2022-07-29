@@ -5,9 +5,10 @@ from PIL import ImageTk, Image
 import pyperclip
 import uuid
 
-ADDRESSES = [233459585000514]
+# Checking that the computer running this code is licensed for this software. (This assumes the code has been compiled and cannot easily be opened by a text editor.)
+LICENSES = {"233459585000514": ("Matt's laptop", "d1b20baa1a8c50c8784c55d45092f974"), "268883483348283": ("Matt's work computer", "da5dc08601545ea9fdb4e511a53cf51c")}
 
-if uuid.getnode() not in ADDRESSES:
+if str(uuid.getnode()) not in LICENSES:
     messagebox.showerror("Unlicensed computer", "Your computer is not licensed to use this software.\n\nPlease contact Matt Skaggs (matt.reword@gmail.com) to obtain a license.")
     raise SystemExit
 
