@@ -6,7 +6,7 @@ import pyperclip
 import uuid
 
 # Checking that the computer running this code is licensed for this software. (This assumes the code has been compiled and cannot easily be opened by a text editor.)
-LICENSES = {"156235296362695": ("Matt's laptop2", "d1b20baa1a8c50c8784c55d45092f974"), "233459585000514": ("Matt's laptop", "d1b20baa1a8c50c8784c55d45092f974"), "268883483348283": ("Matt's work computer", "da5dc08601545ea9fdb4e511a53cf51c")}
+LICENSES = {"153686196671060": ("Matt's laptop 3", "d1b20baa1a8c50c8784c55d45092f974"), "156235296362695": ("Matt's laptop2", "d1b20baa1a8c50c8784c55d45092f974"), "233459585000514": ("Matt's laptop", "d1b20baa1a8c50c8784c55d45092f974"), "268883483348283": ("Matt's work computer", "da5dc08601545ea9fdb4e511a53cf51c")}
 
 if str(uuid.getnode()) not in LICENSES:
     messagebox.showerror("Unlicensed computer", "Your computer is not licensed to use this software.\n\nPlease contact Matt Skaggs (matt.reword@gmail.com) to obtain a license.")
