@@ -6,7 +6,7 @@ import pyperclip
 import uuid
 
 # Checking that the computer running this code is licensed for this software. (This assumes the code has been compiled and cannot easily be opened by a text editor.)
-LICENSES = {"233459585000514": ("Matt's laptop", "d1b20baa1a8c50c8784c55d45092f974"), "268883483348283": ("Matt's work computer", "da5dc08601545ea9fdb4e511a53cf51c")}
+LICENSES = {"153686196671060": ("Matt's laptop 3", "d1b20baa1a8c50c8784c55d45092f974"), "156235296362695": ("Matt's laptop2", "d1b20baa1a8c50c8784c55d45092f974"), "233459585000514": ("Matt's laptop", "d1b20baa1a8c50c8784c55d45092f974"), "268883483348283": ("Matt's work computer", "da5dc08601545ea9fdb4e511a53cf51c")}
 
 if str(uuid.getnode()) not in LICENSES:
     messagebox.showerror("Unlicensed computer", "Your computer is not licensed to use this software.\n\nPlease contact Matt Skaggs (matt.reword@gmail.com) to obtain a license.")
@@ -26,11 +26,11 @@ class MainWindow:
         self.main_window.resizable(False, False)
 
         # Sets window location in the middle of the screen (offset up by 5% of window height -- cosmetic choice)
-        screen_width = self.main_window.winfo_screenwidth()
-        screen_height = self.main_window.winfo_screenheight()
+        self.screen_width = self.main_window.winfo_screenwidth()
+        self.screen_height = self.main_window.winfo_screenheight()
 
-        x = (screen_width/2) - (self.window_width/2)
-        y = (screen_height/2) - (self.window_height/2) - screen_height/20
+        x = (self.screen_width/2) - (self.window_width/2)
+        y = (self.screen_height/2) - (self.window_height/2) - self.screen_height/20
 
         self.main_window.geometry('%dx%d+%d+%d' % (self.window_width, self.window_height, x, y))
 
@@ -46,10 +46,10 @@ class MainWindow:
         self.test_frame.grid(row = 0, rowspan = 4, column = 0, sticky = "e")
 
         # Opening and resizing the Codester
-        the_codester = Image.open("supporting_files\TheCodesterHimself.jpg")
-        the_codester = ImageTk.PhotoImage(the_codester.resize((205, 251), Image.Resampling.LANCZOS))
-        label = tk.Label(self.test_frame, image = the_codester)
-        label.pack()
+        self.the_codester = Image.open("supporting_files\TheCodesterHimself.jpg")
+        self.the_codester = ImageTk.PhotoImage(self.the_codester.resize((205, 251), Image.Resampling.LANCZOS))
+        self.the_codester_label = tk.Label(self.test_frame, image = self.the_codester)
+        self.the_codester_label.pack()
 
         # Label for user input text widget
         self.get_text_lbl = tk.Label(self.top_frame, text="Paste text below. Then sit back, relax, and leave it to the Codester!")
@@ -153,10 +153,10 @@ class MainWindow:
             self.codes = self.no_dups() # Removes duplicates, sorts, converts to string with comma delimiters
 
             # Enters codes found into the text widget. Must enable so the program can use it at all and disable so the user can't change the text.
-            self.codes_output.config(state="normal")
+            self.codes_output.config(state = "normal")
             self.codes_output.delete("1.0", "end")
             self.codes_output.insert("insert", self.codes)
-            self.codes_output.config(state="disabled")
+            self.codes_output.config(state = "disabled")
 
             self.copy_button["state"] = "normal" # User now needs to be able to copy the output
 
