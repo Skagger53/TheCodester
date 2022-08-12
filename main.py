@@ -147,7 +147,7 @@ class MainWindow:
             return
 
         # Input is not empty, so it's evaluated here with a regular expression
-        self.codes = re.findall("[A-Z]\d+.?\d+", user_input)
+        self.codes = re.findall("[A-Z]\d+.?\d+[A-Z]*", user_input)
 
         if len(self.codes) != 0:
             self.codes = self.no_dups() # Removes duplicates, sorts, converts to string with comma delimiters
