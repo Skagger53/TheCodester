@@ -2,12 +2,6 @@ import tkinter as tk
 from tkinter import messagebox
 import uuid
 
-from licenses import LICENSES
-
-if str(uuid.getnode()) not in LICENSES:
-    messagebox.showerror("Unlicensed computer", "Your computer is not licensed to use this software.\n\nPlease contact Matt Skaggs (matt.reword@gmail.com) to obtain a license.")
-    raise SystemExit
-
 import re
 from PIL import ImageTk, Image
 import pyperclip
