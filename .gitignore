@@ -5,3 +5,4 @@ licenses.py
 __pycache__/full_codes.cpython-310.pyc
 __pycache__/licenses.cpython-310.pyc
 *.pyc
+*.pyc
