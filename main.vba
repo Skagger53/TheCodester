@@ -1,9 +1,7 @@
 ' This workbook and all VBA code was created by Matt Skaggs
 
 Option Explicit
-' First data row of various tables. Used in called and calling subs.
 Global table_start_row As Integer
-' The next row to assign team members to. Used in called in calling subs.
 Global next_assign_row As Long
 ' Flag used in called subs for data validation and checked in calling sub
 Global validation_failed As Boolean
@@ -48,11 +46,7 @@ On Error GoTo ErrorHandling
     Call copy_templ(s_o_name, Config.Range("sheet_name_1").Value)
     
     ' Moving filtered data to relevant sheets
-    Call move_data( _
-        DATA_Accts.Range("s_o_testrange"), _
-        DATA_Accts.Range("s_o_testrange").CurrentRegion, _
-        1 _
-        )
+    Call move_data(DATA_Accts.Range("s_o_testrange"), DATA_Accts.Range("s_o_testrange").CurrentRegion, 1)
     Call move_data( _
         DATA_Accts.Range("e_testrange"), _
         DATA_Accts.Range("e_testrange").CurrentRegion, _
